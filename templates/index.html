@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv='content-type' value='text/html;charset=utf8'>
+  <title>Find WeChat Subscription Accounts</title>
+  <style type='text/css' media='all'>
+  table {border: none;}
+  body {font-family: Microsoft YaHei;
+        font-size: 16px}
+  </style>
+</head>
+<body>
+<h2> 通过知乎寻找微信公众号 </h2>
+
+<h3 id="ENDPOINTS">API 列表</h3>
+
+<table cellspacing="0" cellpadding="0">
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><a href="{{ url_for('index') }}" data-bare-link="true"><code>/</code></a> </td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>本页</td>
+</tr>
+<tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><code>/topic/&lt;topic_id&gt;/&lt;number&gt;</code></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>通过知乎话题查找</td>
+</tr>
+<tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><code>/question/&lt;question_id&gt;/&lt;number&gt;</code></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>通过知乎问题查找</td>
+</tr>
+</table>
+
+<p>将<code> topic_id </code>替换成知乎中话题的id，指定遍历多少答案（<code>number</code>）。<code> question_id </code>同理。 </p>
+
+
+<h3 id="ENDPOINTS">举例</h3>
+
+<table cellspacing="0" cellpadding="0">
+<tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><a href="/topic/19552832/100" data-bare-link="true"><code>/topic/19552832/100</code></a></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>遍历100个<a href="https://www.zhihu.com/topic/19552832/top-answers">python话题</a>下的回答搜寻回答者公众号</td>
+</tr>
+<tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><a href="/question/29138020/100" data-bare-link="true"><code>/question/29138020/100</code></a></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>遍历100个<a href="https://www.zhihu.com/question/29138020">如何系统地自学 Python？</a>下的回答搜寻回答者公众号</td>
+</tr>
+</table>
+<p><b>Hint1: <code>number</code>不要指定太大的数，否则最好减少settings中的线程数量，降低爬虫速度</b></p>
+<p>Hint2: 网页加载可能较慢，尤其是指定数过多，请耐心等待！ </p>
+
+
+</body>
+</html>
