@@ -94,3 +94,7 @@ python run.py -c T
 ```
 
 更多使用流程参考[知乎博文](https://zhuanlan.zhihu.com/p/36492842)
+
+### 更新
+
+2018.5.26 运行run.py文件时自动打开浏览器
