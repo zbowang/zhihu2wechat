@@ -4,7 +4,7 @@ import os
 import json
 import copy
 from settings import *
-from queues import SetQueue, ListQueue
+from queues import SetQueue
 from threading import Thread
 from operator import itemgetter
 import re
@@ -15,7 +15,7 @@ class Spider(object):
     def __init__(self, num):
         self.num = num             # <number> input
         self.token = SetQueue()    # storing token for this time
-        self.result = ListQueue()  # storing info of author with '公众号'
+        self.result = list()       # storing info of author with keyword'公众号'
         self.headers = HEADERS     # headers for requests
         self.check = False         # controlled by `self.set_check`
         self.before_num = 0        # controlled by `self.check_url`, used to omit input <number> before
@@ -45,7 +45,7 @@ class Spider(object):
                 s = result['headline'] + result['description']
                 has_gzh = re.search('公众号', s)
                 if has_gzh:
-                    self.result.put(result)
+                    self.result.append(result)
 
     def get_data(self):
         '''run functions before and start multiple threading
@@ -65,8 +65,8 @@ class Spider(object):
             for th in ths:
                 th.join()
 
-            if self.result.queue:
-                return sorted(self.result.queue, key=itemgetter('upvote'), reverse=True)
+            if self.result:
+                return sorted(self.result, key=itemgetter('upvote'), reverse=True)
         return None
 
     def get_html(self):
